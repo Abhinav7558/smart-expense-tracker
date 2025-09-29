@@ -17,6 +17,6 @@ def create_user(user: UserCreate, db: Session = Depends(get_db)):
     db.refresh(db_user)
     return db_user
 
-@router.get("/api/users", response_model=List[UserOut])
+@router.get("", response_model=List[UserOut])
 def get_users(db: Session = Depends(get_db)):
     return db.query(User).all()
